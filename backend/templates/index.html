@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Recommendations</title>
+    <!-- Add any additional styling or scripts here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div>
+        <h2>Your Top Artists</h2>
+        {% for artist in artists %}
+            <p>{{ artist }}</p>
+        {% endfor %}
+    </div>
+
+    <div>
+        <h2>Recommended Tracks</h2>
+        {% for recommendation in recommendations %}
+            <p>{{ recommendation.name }} - {{ recommendation.artists|join(', ') }}</p>
+        {% endfor %}
+    </div>
+
+    <!-- Add any additional HTML structure or scripts here -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
